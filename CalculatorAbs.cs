@@ -8,6 +8,6 @@ namespace CalculatorApp
 {
     public abstract class CalculatorAbs
     {
-        public double Result { get; set; }
+        public double Result { get; protected set; } = 0;
     }
 }
