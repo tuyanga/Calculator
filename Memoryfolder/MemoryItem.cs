@@ -7,6 +7,12 @@ using System.Threading.Tasks;
 namespace CalculatorApp.Memoryfolder
 {
     internal class MemoryItem
-    {
+    {   
+        public double Value { get; }
+
+        public MemoryItem(double value) 
+        { 
+            Value = value; 
+        }
     }
 }
