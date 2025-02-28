@@ -21,6 +21,14 @@ namespace TestCalculator
                 Assert.AreEqual(10, memory.MRecall());
             }
         [TestMethod]
+        public void MSave_MultipleValues()
+        {
+            memory.MSave(10);
+            memory.MSave(20);
+            Assert.AreEqual(20, memory.MRecall());
+        }
+
+        [TestMethod]
         public void MClear_Clear_Memory()
             {
                 memory.MSave(10);
