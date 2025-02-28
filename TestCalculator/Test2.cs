@@ -14,21 +14,21 @@ public class CalculatorTests
     }
 
     [TestMethod]
-    public void Add_ShouldIncreaseResult()
+    public void Add_IncreaseResult()
     {
         calculator.Add(5);
         Assert.AreEqual(5, calculator.Result);
     }
 
     [TestMethod]
-    public void Sub_ShouldDecreaseResult()
+    public void Sub_DecreaseResult()
     {
         calculator.Sub(3);
         Assert.AreEqual(-3, calculator.Result);
     }
 
     [TestMethod]
-    public void MultipleOperations_ShouldProduceCorrectResult()
+    public void MultipleOp_CorrectResult()
     {
         calculator.Add(6);
         calculator.Sub(2);
@@ -37,7 +37,7 @@ public class CalculatorTests
     }
 
     [TestMethod]
-    public void MemoryOperations_ShouldWorkCorrectly()
+    public void MemoryOp_CorrectResult()
     {
         calculator.Add(10);
         calculator.MSave();
@@ -45,4 +45,20 @@ public class CalculatorTests
         calculator.MSub(3);
         Assert.AreEqual(12, calculator.MRecall());
     }
+    [TestMethod]
+    public void MSave_StoreZero()
+    {
+        calculator.MSave();
+        Assert.AreEqual(0, calculator.MRecall());
+    }
+
+    [TestMethod]
+    public void MClear_ClearMemory()
+    {
+        calculator.Add(10);
+        calculator.MSave();
+        calculator.MClear();
+        Assert.AreEqual(0, calculator.MRecall());
+    }
+
 }
