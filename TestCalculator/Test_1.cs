@@ -42,6 +42,20 @@ namespace TestCalculator
                 Assert.AreEqual(7, memory.MRecall());
             }
         [TestMethod]
+        public void MAdd_AlsoDoMSave()
+        {
+            memory.MAdd(5);
+            Assert.AreEqual(5, memory.MRecall());
+        }
+
+        [TestMethod]
+        public void MSub_AlsoDoMSave()
+        {
+            memory.MSub(3);
+            Assert.AreEqual(-3, memory.MRecall());
+        }
+
+        [TestMethod]
         public void MRecall_ReturnZero()
             {
                 Assert.AreEqual(0, memory.MRecall());
