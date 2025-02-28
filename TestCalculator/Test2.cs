@@ -60,5 +60,15 @@ public class CalculatorTests
         calculator.MClear();
         Assert.AreEqual(0, calculator.MRecall());
     }
+    [TestMethod]
+    public void ComplexOp_CorrectResult()
+    {
+        calculator.Add(10);
+        calculator.Sub(5);
+        calculator.Add(20);
+        calculator.Sub(10);
+        Assert.AreEqual(15, calculator.Result);
+    }
+
 
 }
