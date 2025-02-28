@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CalculatorApp
+namespace CalculatorLibrary
 {
-    public abstract class CalculatorAbs
+    public interface IManagable
     {
-        public double Result { get; protected set; } = 0;
+        void Add(double num);
+        void Sub(double num);
     }
 }

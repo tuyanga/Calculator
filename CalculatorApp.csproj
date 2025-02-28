@@ -7,4 +7,22 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="CalculatorLibrary\**" />
+    <Compile Remove="TestCalculator\**" />
+    <EmbeddedResource Remove="CalculatorLibrary\**" />
+    <EmbeddedResource Remove="TestCalculator\**" />
+    <None Remove="CalculatorLibrary\**" />
+    <None Remove="TestCalculator\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove=".gitattributes" />
+    <None Remove=".gitignore" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="CalculatorLibrary\CalculatorLibrary.csproj" />
+  </ItemGroup>
+
 </Project>

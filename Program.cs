@@ -1,5 +1,7 @@
-﻿using CalculatorApp.Calculatorfoler;
-using CalculatorApp.Memoryfolder;
+﻿
+using CalculatorLibrary.Calculatorfoler;
+using CalculatorLibrary.Memoryfolder;
+
 namespace CalculatorApp
 {
     internal class Program
