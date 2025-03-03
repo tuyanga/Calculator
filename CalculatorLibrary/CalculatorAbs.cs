@@ -8,6 +8,6 @@ namespace CalculatorLibrary
 {
     public abstract class CalculatorAbs
     {
-        public double Result { get; protected set; } = 0;
+        public double Result { get; set; } = 0;
     }
 }
