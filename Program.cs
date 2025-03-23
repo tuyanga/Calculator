@@ -14,15 +14,15 @@ namespace CalculatorApp
             calc.Sub(5);
             Console.WriteLine("Result: " + calc.Result);
             calc.MSave();
-            calc.Display();
-            calc.MAdd(2);
-            Console.WriteLine("Memory Recall: " + calc.MRecall());
 
-            calc.MSub(3);
-            Console.WriteLine("Memory Recall after MSub: " + calc.MRecall());
+            //calc.MAdd(2);
+            //Console.WriteLine("Memory Recall: " + calc.MRecall());
 
-            calc.MClear();
-            Console.WriteLine("Memory Cleared, Recall: " + calc.MRecall());
+            //calc.MSub(3);
+            //Console.WriteLine("Memory Recall after MSub: " + calc.MRecall());
+
+            //calc.MClear();
+            //Console.WriteLine("Memory Cleared, Recall: " + calc.MRecall());
         }
     }
 }

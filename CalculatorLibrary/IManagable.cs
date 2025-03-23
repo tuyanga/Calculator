@@ -8,7 +8,7 @@ namespace CalculatorLibrary
 {
     public interface IManagable
     {
-        void Add(double num);
-        void Sub(double num);
+        void Add(int num);
+        void Sub(int num);
     }
 }

@@ -16,138 +16,45 @@ namespace TestCalculator
         }
 
         [TestMethod]
-        public void MSave_Store_MValue()
-        {
-            memory.MSave(10);
-            Assert.AreEqual(10, memory.MRecall());
-        }
-        [TestMethod]
-        public void MSave_MultipleValues()
+        public void MSave_ShouldStoreValuesInOrder()
         {
             memory.MSave(10);
             memory.MSave(20);
-            Assert.AreEqual(20, memory.MRecall());
-        }
-        [TestMethod]
-        public void MSave_AfterMCl_StoreNewValue()
-        {
-            memory.MSave(10);
-            memory.MClear();
-            memory.MSave(5);
-            Assert.AreEqual(5, memory.MRecall());
-        }
+            memory.MSave(30);
 
+            List<int> expected = new List<int> { 10, 20, 30 };
+            List<int> actual = memory.memoryList.Select(m => m.Value).ToList();
 
-        [TestMethod]
-        public void MClear_Clear_Memory()
-        {
-            memory.MSave(10);
-            memory.MClear();
-            Assert.AreEqual(0, memory.MRecall());
-        }
-        [TestMethod]
-        public void MAdd_Increase_MValue()
-        {
-            memory.MSave(10);
-            memory.MAdd(5);
-            Assert.AreEqual(15, memory.MRecall());
-        }
-        [TestMethod]
-        public void MSub_Decrease_MValue()
-        {
-            memory.MSave(10);
-            memory.MSub(3);
-            Assert.AreEqual(7, memory.MRecall());
-        }
-        [TestMethod]
-        public void MAdd_AlsoDoMSave()
-        {
-            memory.MAdd(5);
-            Assert.AreEqual(5, memory.MRecall());
+            CollectionAssert.AreEqual(expected, actual);
         }
 
         [TestMethod]
-        public void MAdd_MultipleTime()
-        {
-            memory.MAdd(2);
-            memory.MAdd(3);
-            Assert.AreEqual(5, memory.MRecall());
-        }
-
-        [TestMethod]
-        public void MSub_AlsoDoMSave()
-        {
-            memory.MSub(3);
-            Assert.AreEqual(-3, memory.MRecall());
-        }
-
-        [TestMethod]
-        public void MSub_MultipleTimeNegativeValues()
-        {
-            memory.MSub(2);
-            memory.MSub(3);
-            Assert.AreEqual(-5, memory.MRecall());
-        }
-
-        [TestMethod]
-        public void MSub_WithNegativeValue()
-        {
-            memory.MSave(10);
-            memory.MSub(-5);
-            Assert.AreEqual(15, memory.MRecall());
-        }
-
-        [TestMethod]
-        public void MRecall_ReturnZero()
-        {
-            Assert.AreEqual(0, memory.MRecall());
-        }
-        
-        [TestMethod]
-        public void MRecall_AfterMAddCorrect()
-        {
-            memory.MSave(10);
-            memory.MAdd(5);
-            Assert.AreEqual(15, memory.MRecall());
-        }
-        [TestMethod]
-        public void MRecall_AfterMClear_ReturnZero()
-        {
-            memory.MSave(10);
-            memory.MClear();
-            Assert.AreEqual(0, memory.MRecall());
-        }
-        [TestMethod]
-        public void MRecall_AfterMultipleOp()
-        {
-            memory.MSave(10);
-            memory.MAdd(5);
-            memory.MClear();
-            Assert.AreEqual(0, memory.MRecall());
-        }
-        [TestMethod]
-        public void Display_MemoryList()
+        public void MClear_ShouldRemoveAllMemoryItems()
         {
             memory.MSave(10);
             memory.MSave(20);
+            memory.MClear();
 
-            using (StringWriter sw = new StringWriter())
-            {
-                Console.SetOut(sw);
-                memory.Display();
-
-                string expectedOutput = "Memory list below" + Environment.NewLine +
-                                        "Memory Item: 10" + Environment.NewLine +
-                                        "Memory Item: 20" + Environment.NewLine;
-
-                string actualOutput = sw.ToString();
-
-                Assert.AreEqual(expectedOutput, actualOutput);
-            }
+            Assert.AreEqual(0, memory.memoryList.Count);
         }
 
+        [TestMethod]
+        public void MC_ShouldRemoveSpecificMemoryItem()
+        {
+            var item1 = memory.MSave(10);
+            var item2 = memory.MSave(20);
+            var item3 = memory.MSave(30);
 
-        [TestClass]
+            item2.MC(memory.memoryList);
+
+            List<int> expected = new List<int> { 10, 30 };
+            List<int> actual = memory.memoryList.Select(m => m.Value).ToList();
+
+            CollectionAssert.AreEqual(expected, actual);
+        }
+    }
+
+    [TestClass]
         public class MemoryItemTests
         {
             [TestMethod]
@@ -182,8 +89,6 @@ namespace TestCalculator
                 Assert.AreEqual(12, memoryItem.Value);
             }
 
-
-
         }
     }
-}
+

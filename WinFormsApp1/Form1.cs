@@ -90,7 +90,7 @@ namespace WinFormsApp1
             Panel memoryItemPanel = new Panel
             {
                 Height = 50,
-                Width = memoryPanel.Width - 5,
+                Width = memoryPanel.Width - 20,
                 BorderStyle = BorderStyle.FixedSingle
             };
 
@@ -108,7 +108,11 @@ namespace WinFormsApp1
                 Height = 45,
                 Location = new Point(85, 2)
             };
-            btnMC.Click += (s, e) => { memoryPanel.Controls.Remove(memoryItemPanel); };
+            btnMC.Click += (s, e) => 
+            {
+                memItem.MC(calc.memory.memoryList); 
+                memoryPanel.Controls.Remove(memoryItemPanel); 
+            };
 
             Button btnMPlus = new Button
             {

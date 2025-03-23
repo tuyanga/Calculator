@@ -8,9 +8,9 @@ namespace CalculatorLibrary.Memoryfolder
 {
     public class MemoryItem
     {   
-        public double Value { get; private set; }
+        public int Value { get; private set; }
 
-        public MemoryItem(double value) 
+        public MemoryItem(int value) 
         { 
             Value = value; 
         }
@@ -18,7 +18,7 @@ namespace CalculatorLibrary.Memoryfolder
         /// санах ойн элемзнтэд item-d утга нэмэх
         /// </summary>
         /// <param name="number"></param>
-        public void MAdd(double number)
+        public void MAdd(int number)
         {
             Value += number;
         }
@@ -26,9 +26,17 @@ namespace CalculatorLibrary.Memoryfolder
         /// санах ойн элемзнтээс item-aas утга хасах
         /// </summary>
         /// <param name="number"></param>
-        public void MSub(double number)
+        public void MSub(int number)
         {
             Value -= number;
+        }
+        /// <summary>
+        /// memitem- delete хийх
+        /// </summary>
+        /// <param name="memory"></param>
+        public void MC(List<MemoryItem> memoryList)
+        {
+            memoryList.Remove(this);
         }
     }
 }

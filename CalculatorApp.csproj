@@ -10,10 +10,13 @@
   <ItemGroup>
     <Compile Remove="CalculatorLibrary\**" />
     <Compile Remove="TestCalculator\**" />
+    <Compile Remove="WinFormsApp1\**" />
     <EmbeddedResource Remove="CalculatorLibrary\**" />
     <EmbeddedResource Remove="TestCalculator\**" />
+    <EmbeddedResource Remove="WinFormsApp1\**" />
     <None Remove="CalculatorLibrary\**" />
     <None Remove="TestCalculator\**" />
+    <None Remove="WinFormsApp1\**" />
   </ItemGroup>
 
   <ItemGroup>

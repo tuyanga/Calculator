@@ -13,7 +13,7 @@ namespace CalculatorLibrary.Calculatorfoler
         /// нэмэх үйлдэл
         /// </summary>
         /// <param name="num"></param>
-        public void Add(double num) 
+        public void Add(int num) 
         { 
             Result += num;
         }
@@ -21,11 +21,11 @@ namespace CalculatorLibrary.Calculatorfoler
         /// хасах үйлдэл
         /// </summary>
         /// <param name="num"></param>
-        public void Sub(double num) 
+        public void Sub(int num) 
         { 
             Result -= num;
         }
-        Memory memory=new Memory();
+        public Memory memory { get; private set; }=new Memory();
         /// <summary>
         /// санах ой руу хадгалах
         /// </summary>
@@ -33,45 +33,6 @@ namespace CalculatorLibrary.Calculatorfoler
         {
             return memory.MSave(Result);
         }
-        /// <summary>
-        /// санах ойн элемзнтэд утга нэмэх
-        /// </summary>
-        /// <param name="number"></param>
-        public void MAdd(double number)
-        {
-            memory.MAdd(number);
-        }
-        /// <summary>
-        /// санах ойн элемзнтээс утга хасах
-        /// </summary>
-        /// <param name="number"></param>
-        public void MSub(double number)
-        {
-            memory.MSub(number);
-        }
 
-        /// <summary>
-        /// санах ойн бүх элементийг устгах
-        /// </summary>
-        public void MClear()
-        {
-            memory.MClear();
-        }
-
-        /// <summary>
-        /// Сүүлийн санах ойд оруулсан элементийн утгыг авах
-        /// </summary>
-        /// <returns></returns>
-        public double MRecall()
-        {
-            return memory.MRecall();
-        }
-        /// <summary>
-        /// Санах ой дээрх элементүүдийг хэвлэн харуулах
-        /// </summary>
-        public void Display()
-        {
-            memory.Display();
-        }
     }
 }
