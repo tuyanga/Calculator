@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorLibrary", "Calcul
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCalculator", "TestCalculator\TestCalculator.csproj", "{5C8DB2A2-FD0C-4BD3-AE3F-9F81431B93C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsApp1", "..\WinFormsApp1\WinFormsApp1.csproj", "{835FE923-2270-410C-ABC2-69784A1E00E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsApp1", "WinFormsApp1\WinFormsApp1.csproj", "{BC150CE2-BC7F-BB20-899B-A29BED553BB8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,12 +29,15 @@ Global
 		{5C8DB2A2-FD0C-4BD3-AE3F-9F81431B93C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C8DB2A2-FD0C-4BD3-AE3F-9F81431B93C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C8DB2A2-FD0C-4BD3-AE3F-9F81431B93C1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{835FE923-2270-410C-ABC2-69784A1E00E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{835FE923-2270-410C-ABC2-69784A1E00E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{835FE923-2270-410C-ABC2-69784A1E00E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{835FE923-2270-410C-ABC2-69784A1E00E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC150CE2-BC7F-BB20-899B-A29BED553BB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC150CE2-BC7F-BB20-899B-A29BED553BB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC150CE2-BC7F-BB20-899B-A29BED553BB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC150CE2-BC7F-BB20-899B-A29BED553BB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F53782C1-7F7E-4614-B04F-689B47698F00}
 	EndGlobalSection
 EndGlobal
