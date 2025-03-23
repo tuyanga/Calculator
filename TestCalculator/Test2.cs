@@ -12,7 +12,7 @@ public class CalculatorTests
     {
         calculator = new Calculator();
     }
-
+    // 1. Calculator Operations
     [TestMethod]
     public void Add_IncreaseResult()
     {
@@ -35,16 +35,46 @@ public class CalculatorTests
         calculator.Add(4);
         Assert.AreEqual(8, calculator.Result);
     }
-
+    // 2. Memory Operations
     [TestMethod]
-    public void MemoryOp_CorrectResult()
+    public void Memory_CheckOrder()
     {
-        calculator.Add(10);
+        calculator.Result = 5;
         calculator.MSave();
-        calculator.MAdd(5);
-        calculator.MSub(3);
-        Assert.AreEqual(12, calculator.MRecall());
+        calculator.Result = 15;
+        calculator.MSave();
+        calculator.Result = 25;
+        calculator.MSave();
+    
+        List<int> memoryValues = calculator.Memory.Select(m => m.Value).ToList();
+        
+        CollectionAssert.AreEqual(new List<int> { 5, 15, 25 }, memoryValues);
     }
+    [TestMethod]
+    public void Memory_Add_Subtract_SpecificItems()
+    {
+        calculator.Result = 5;
+        calculator.MSave();
+        calculator.Result = 15;
+        calculator.MSave();
+        calculator.Result = 25;
+        calculator.MSave();
+    
+        calculator.Memory[0].MAdd(10);
+        calculator.Memory[0].MSub(2);
+        Assert.AreEqual(13, calculator.Memory[0].Value);
+
+        calculator.Memory[1].MAdd(5);
+        calculator.Memory[1].MSub(3);
+        Assert.AreEqual(17, calculator.Memory[1].Value);
+        
+
+        calculator.Memory[2].MAdd(20);
+        calculator.Memory[2].MSub(5);
+        Assert.AreEqual(40, calculator.Memory[2].Value);
+
+    }
+
     [TestMethod]
     public void MSave_StoreZero()
     {
@@ -55,7 +85,7 @@ public class CalculatorTests
     [TestMethod]
     public void MClear_ClearMemory()
     {
-        calculator.Add(10);
+        calculator.Result=0;
         calculator.MSave();
         calculator.MClear();
         Assert.AreEqual(0, calculator.MRecall());
