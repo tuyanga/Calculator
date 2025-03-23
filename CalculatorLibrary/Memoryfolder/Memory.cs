@@ -15,9 +15,11 @@ namespace CalculatorLibrary.Memoryfolder
         /// санах ой руу хадгалах
         /// </summary>
         /// <param name="value"></param>
-        public void MSave(double value) 
-        {  
-            memoryList.Add(new MemoryItem(value));
+        public MemoryItem MSave(double value) 
+        {
+            MemoryItem newItem = new MemoryItem(value);
+            memoryList.Add(newItem);
+            return newItem;
         }
 
         //mc

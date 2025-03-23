@@ -29,9 +29,9 @@ namespace CalculatorLibrary.Calculatorfoler
         /// <summary>
         /// санах ой руу хадгалах
         /// </summary>
-        public void MSave()
+        public MemoryItem MSave()
         {
-            memory.MSave(Result);
+            return memory.MSave(Result);
         }
         /// <summary>
         /// санах ойн элемзнтэд утга нэмэх

@@ -80,6 +80,7 @@ namespace TestCalculator
             memory.MSub(3);
             Assert.AreEqual(-3, memory.MRecall());
         }
+
         [TestMethod]
         public void MSub_MultipleTimeNegativeValues()
         {
@@ -92,11 +93,9 @@ namespace TestCalculator
         public void MSub_WithNegativeValue()
         {
             memory.MSave(10);
-            memory.MSub(-5);  // -5 хасах нь нэмэхтэй адил
+            memory.MSub(-5);
             Assert.AreEqual(15, memory.MRecall());
         }
-
-
 
         [TestMethod]
         public void MRecall_ReturnZero()
