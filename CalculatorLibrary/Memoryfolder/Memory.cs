@@ -24,20 +24,14 @@ namespace CalculatorLibrary.Memoryfolder
 
         //mc
         /// <summary>
-        /// санах ойн элементийг устгах
-        /// </summary>
-        /// 
-        public void MC(MemoryItem item)
-        {
-            memoryList.Remove(item);
-        }
-        /// <summary>
         /// санах ойн бүх элементийг устгах
         /// </summary>
+        /// 
         public void MClear()
         {
             memoryList.Clear();
         }
+
         //madd
         /// <summary>
         /// санах ойн элемзнтэд утга нэмэх
@@ -78,9 +72,9 @@ namespace CalculatorLibrary.Memoryfolder
         public void Display()
         {
             Console.WriteLine("Memory list below");
-            for (int i = 0; i < memoryList.Count; i++)
+            foreach(var item in memoryList)
             {
-                Console.WriteLine($"[{i}] Memory Item: {memoryList[i].Value}");
+                Console.WriteLine($"Memory Item: {item.Value}");
             }
         }
         
