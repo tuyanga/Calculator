@@ -17,6 +17,7 @@ namespace WinFormsApp1
 
         private char operation = ' ';
         private bool entervalue = false;
+        private bool OperationPending = false;
 
         private void NumButton_Click(object sender, EventArgs e)
         {
@@ -26,52 +27,64 @@ namespace WinFormsApp1
                 txtResult.Text = btn.Text;
                 entervalue = false;
             }
+            else if (btn.Text == "-" && !txtResult.Text.Contains("-"))
+            {
+                txtResult.Text = "-" + txtResult.Text;  // Сөрөг тоо бичихийг зөвшөөрнө
+            }
             else
             {
                 txtResult.Text += btn.Text;
             }
+            OperationPending = false;
         }
 
         private void addbutton_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(txtResult.Text, out int num))
-            {
-                calc.Result = num;
-                operation = '+';
-                txtResult.Clear();
-                entervalue = true;
-            }
+            CalculatePendingOperation();
+            operation = '+';
+            entervalue = true;
+            OperationPending = true;
         }
 
         private void subbutton_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(txtResult.Text, out int num))
-            {
-                calc.Result = num;
-                operation = '-';
-                txtResult.Clear();
-                entervalue = true;
-            }
+            CalculatePendingOperation();
+            operation = '-';
+            entervalue = true;
+            OperationPending = true;
         }
 
         private void clearbutton_Click(object sender, EventArgs e)
         {
-            txtResult.Clear();
+            txtResult.Text = "0";
             calc.Result = 0;
             operation = ' ';
         }
         private void equalbutton_Click(object sender, EventArgs e)
         {
+            CalculatePendingOperation();
+            txtResult.Text = calc.Result.ToString();
+            operation = ' ';
+            entervalue = true;
+        }
+        private void CalculatePendingOperation()
+        {
+            if (OperationPending) return;
             if (int.TryParse(txtResult.Text, out int num))
             {
                 if (operation == '+')
+                {
                     calc.Add(num);
+                }
                 else if (operation == '-')
+                {
                     calc.Sub(num);
-
-                txtResult.Text = calc.Result.ToString();
+                }
+                else
+                {
+                    calc.Result = num;
+                }
             }
-            entervalue = true;
         }
         private void btnMS_Click(object sender, EventArgs e)
         {
