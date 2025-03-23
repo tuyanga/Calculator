@@ -30,5 +30,9 @@ namespace CalculatorLibrary.Memoryfolder
         {
             Value -= number;
         }
+        public void MC(List<MemoryItem> memoryList)
+        {
+            memoryList.Remove(this);
+        }
     }
 }

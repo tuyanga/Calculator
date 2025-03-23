@@ -108,7 +108,11 @@ namespace WinFormsApp1
                 Height = 45,
                 Location = new Point(85, 2)
             };
-            btnMC.Click += (s, e) => { memoryPanel.Controls.Remove(memoryItemPanel); };
+            btnMC.Click += (s, e) =>
+            {
+                memItem.MC();
+                memoryPanel.Controls.Remove(memoryItemPanel);
+            };
 
             Button btnMPlus = new Button
             {
